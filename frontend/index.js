@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await updateTotalPlaces(value);
     });
 
-    guestLinkBtn.addEventListener('click', async () => {
+    copyGuestUrlBtn.addEventListener('click', async () => {
         const url = new URL(
             '/parking-ui/guest/',
             window.location.origin
