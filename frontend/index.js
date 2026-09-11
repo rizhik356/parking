@@ -372,14 +372,36 @@ document.addEventListener('DOMContentLoaded', () => {
         await updateTotalPlaces(value);
     });
 
-    copyGuestUrlBtn.addEventListener('click', async () => {
-        const url = new URL(window.location.href);
+    guestLinkBtn.addEventListener('click', async () => {
+        const url = new URL(
+            '/parking-ui/guest/',
+            window.location.origin
+        ).toString();
 
-        url.pathname = `${url.pathname.replace(/\/$/, '')}/guest`;
+        try {
+            if (navigator.clipboard) {
+                await navigator.clipboard.writeText(url);
+            } else {
+                const input = document.createElement('textarea');
 
-        await navigator.clipboard.writeText(url.toString());
+                input.value = url;
+                input.style.position = 'fixed';
+                input.style.opacity = '0';
 
-        setStatus('Ссылка скопирована', 'success');
+                document.body.appendChild(input);
+
+                input.focus();
+                input.select();
+
+                document.execCommand('copy');
+
+                input.remove();
+            }
+
+            setStatus('Ссылка скопирована', 'success');
+        } catch {
+            setStatus('Не удалось скопировать ссылку', 'error');
+        }
     });
 
     getParking();
