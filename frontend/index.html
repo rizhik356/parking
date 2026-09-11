@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+    <title>Паркинг</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="header_row">
+            <div class="header_span">Парковка мероприятия</div>
+            <div class="sync">
+                <span class="status_dot"></span>
+                <span class="status">Ожидание данных</span>
+            </div>
+        </div>
+        <div class="card">
+            <p class="free_label">Свободно мест</p>
+            <p class="free_number">0</p>
+            <p class="of_total">из <span class="total_number">0</span> всего · занято <span class="busy_number">0</span></p>
+            <div class="barmeter">
+                <div class="barmeter_fill" style="width: 0"></div>
+            </div>
+            <div class="controls">
+                <button class="control_btn minus">Место освободилось</button>
+                <button class="control_btn plus">Место занято</button>
+            </div>
+        </div>
+        <div class="footer_row">
+            <button class="link-btn settings_btn">Настройки</button>
+            <button class="link-btn guest_link_btn">Ссылка для гостей / экрана</button>
+        </div>
+        <div class="settings">
+            <div class="field_row">
+                <label for="totalInput">Всего мест</label>
+                <input type="number" id="totalInput" min="1" max="9999" step="1" value="0">
+            </div>
+            <div class="settings_action">
+                <button class="primary save_btn">Сохранить</button>
+                <button class="danger reset_btn">Сбросить до 0 занятых</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirm_overlay">
+        <div class="confirm_modal">
+            <div class="confirm_title">Сбросить парковку?</div>
+
+            <div class="confirm_text">
+                Все занятые места будут сброшены до 0.
+            </div>
+
+            <div class="confirm_actions">
+                <button class="confirm_cancel">
+                    Отмена
+                </button>
+
+                <button class="confirm_ok">
+                    Сбросить
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="./config.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
